@@ -10,6 +10,8 @@ class DecksController < ApplicationController
   # GET /decks/1
   # GET /decks/1.json
   def show
+    card = Card.where(deck_id: params[:id]).sample
+    redirect_to url_for(:controller => :cards, :action => :show, :deck_id => params[:id], :id => card.id)
   end
 
   # GET /decks/new
