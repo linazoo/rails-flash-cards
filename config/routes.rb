@@ -4,15 +4,14 @@ Rails.application.routes.draw do
   resources :cards
   resources :decks
   resources :users
-
   
-  get '/decks' => 'decks#view'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'decks#index'
 
+  get 'decks/:id/play' => 'decks#play', as: :play_deck
   # Example of regular route:
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

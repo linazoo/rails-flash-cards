@@ -10,9 +10,15 @@ class DecksController < ApplicationController
   # GET /decks/1
   # GET /decks/1.json
   def show
-    card = Card.where(deck_id: params[:id]).sample
-    redirect_to url_for(:controller => :cards, :action => :show, :deck_id => params[:id], :id => card.id)
+    
   end
+
+  def play
+    @deck = Deck.find(params[:id]) #route that will hit is deck/id/play
+    @user = User.first 
+    @round = Round.create({user_id: @user.id, deck_id: @deck.id}) #the round is what connects the user to the deck
+    redirect_to "/cards/#{@deck.cards.first.id}/"
+  end 
 
   # GET /decks/new
   def new
