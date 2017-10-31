@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @card.question %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @card.answer %>
+</p>
+
+<div class="field">
+    <%= f.label :answer %><br>
+    <%= f.text_field :answer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+</div>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

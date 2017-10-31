@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome to Flashcards ~ Pick a deck</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @decks.each do |deck| %>
+      <tr>
+        <td><%= deck.name %></td>
+        <td><%= deck.description %></td>
+        <td><%= link_to 'Show', deck %></td>
+        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
+        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Round', new_round_path %>
+<%= link_to 'Sign Up', new_user_path %>
+
